@@ -3,11 +3,12 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.1'
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.4'
 # Use mysql as the database for Active Record
 gem 'bootstrap-sass', '3.3.7'
-gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+gem "mysql2", group: :development
 # Use Puma as the app server
 gem 'bcrypt'
 gem 'puma', '~> 3.11'
@@ -62,6 +63,10 @@ group :test do
   gem 'minitest-reporters', '1.1.14'
   gem 'guard', '2.13.0'
   gem 'guard-minitest', '2.4.4'
+end
+
+group :production do
+  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
